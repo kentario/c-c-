@@ -1,0 +1,157 @@
+kentario@pop-os:~$ cd
+kentario@pop-os:~$ cd kens-code/
+kentario@pop-os:~/kens-code$ cd c-c++/
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+ende.c: In function ‘main’:
+ende.c:9:3: error: expected declaration or statement at end of input
+    9 |   printf ("%d\n", c);
+      |   ^~~~~~
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+kentario@pop-os:~/kens-code/c-c++$ ./ende 
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+kentario@pop-os:~/kens-code/c-c++$ ./ende 
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ ./ende hello
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+kentario@pop-os:~/kens-code/c-c++$ ./ende
+32
+kentario@pop-os:~/kens-code/c-c++$ ./ende
+32
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+kentario@pop-os:~/kens-code/c-c++$ ./ende hello
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+kentario@pop-os:~/kens-code/c-c++$ ./ende hello
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ ./tutorial 
+  0    -17.777778
+ 20    -6.666667
+ 40    4.444444
+ 60    15.555556
+ 80    26.666667
+100    37.777778
+120    48.888889
+140    60.000000
+160    71.111111
+180    82.222222
+200    93.333333
+220    104.444444
+240    115.555556
+260    126.666667
+280    137.777778
+300    148.888889
+kentario@pop-os:~/kens-code/c-c++$ gcc tutorial.c -o tutorial
+kentario@pop-os:~/kens-code/c-c++$ ./tutorial 
+  0    -17.78
+ 20     -6.67
+ 40      4.44
+ 60     15.56
+ 80     26.67
+100     37.78
+120     48.89
+140     60.00
+160     71.11
+180     82.22
+200     93.33
+220    104.44
+240    115.56
+260    126.67
+280    137.78
+300    148.89
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+kentario@pop-os:~/kens-code/c-c++$ ./ende 
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ ./ende 
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+kentario@pop-os:~/kens-code/c-c++$ ./ende hello
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ xterm\
+>
+kentario@pop-os:~/kens-code/c-c++$ ./ende 
+helajlfdsa
+104
+101
+108
+97
+106
+108
+102
+100
+115
+97
+10
+hi
+104
+105
+10
+what
+119
+104
+97
+116
+10
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+kentario@pop-os:~/kens-code/c-c++$ ./ende 
+hi
+h
+i
+
+
+wh
+w
+h
+
+
+ajfdsjafdsa
+a
+j
+f
+d
+s
+j
+a
+f
+d
+s
+a
+
+
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ gcc ende.c -o ende
+kentario@pop-os:~/kens-code/c-c++$ ./ende 
+hi
+hi
+hello
+hello
+why dasf lkdsja  lkfsjaf 
+why dasf lkdsja  lkfsjaf 
+kj;ahdlfsk
+kj;ahdlfsk
+
+
+kentaro
+kentaro
+
+
+
+
+
+
+
+
+
+
+
+
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ 
+kentario@pop-os:~/kens-code/c-c++$ 
+kentario@pop-os:~/kens-code/c-c++$ ./ende 
+lksjdf
+lksjdf
+  C-c C-c
+kentario@pop-os:~/kens-code/c-c++$ 

@@ -1,0 +1,16 @@
+run: run-temporary
+
+run-temporary: temporary
+	./temporary
+
+temporary: temporary.cpp
+	g++ $< -o $@
+
+all: ende in-out
+
+ende: ende.c
+	gcc ende.c -o ende
+
+in-out: in-out.c
+	gcc in-out.c -o in-out
+

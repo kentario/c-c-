@@ -1,0 +1,15 @@
+// Prints out what the user inputs.
+
+#include <stdio.h>
+#include <unistd.h>
+
+int
+main (int av, char *av[])
+{
+  while (true) {
+    char buffer[100];
+    ssize_t read_this_much = read(STDIN_FILENO, buffer, 99);
+    buffer[read_this_much] = 0;
+    printf (buffer);
+  }
+}
