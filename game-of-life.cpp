@@ -1,7 +1,20 @@
 #include <iostream>
 #include <cstring>
+#include <SDL2/SDL.h>
 
 using namespace std;
+
+void draw_scaled_point (SDL_Renderer *renderer, int scale, int x, int y)
+{
+  // i is the relative y and j is the relative x.
+  int i = 0;
+  int j = 0;
+  for (i = 0; i < scale; i++) {
+    for (j = 0; j < scale; j++) {
+      SDL_RenderDrawPoint(renderer, (x * scale) + j, (y * scale) + i);
+    }
+  }
+}
 
 int offset (int size_width, int size_height, int horiz_off, int vert_off)
 {
@@ -29,10 +42,12 @@ int count_adjacent (int x, int y, bool pixels_on[], int width, int height)
 
 int main ()
 {
-  int width = 15;
-  int height = 25;
+  int width = 40;
+  int height = 30;
   int current_x;
   int current_y;
+  int scale = 50;
+  float delay_seconds = 0.25;
 
   bool pixels_on[width * height];
   int adjacent_on[width][height];
@@ -52,22 +67,37 @@ int main ()
   pixels_on[offset(width, height, 7, 6)] = true;
   pixels_on[offset(width, height, 4, 7)] = true;
   pixels_on[offset(width, height, 5, 7)] = true;
-  
+
+  // Making the canvas.
+  if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+    fprintf(stderr, "Could not init SDL: %s\n", SDL_GetError());
+    return 1;
+  }
+  SDL_Window *screen = SDL_CreateWindow ("My application", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width * scale, height * scale, 0);
+  if (!screen) {
+    fprintf (stderr, "Could not create window\n");
+    return 1;
+  }
+  SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_SOFTWARE);
+  if (!renderer) {
+    fprintf (stderr, "Could not create renderer\n");
+    return 1;
+  }
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+  SDL_RenderClear(renderer);
+
+  SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+
   // Printing the screen.
   for (int i = 0; i < 15; i++) {
     for (current_y = 0; current_y < height; current_y++) {
       for (current_x = 0; current_x < width; current_x++) {
 	if (pixels_on[offset(width, height, current_x, current_y)]) {
-	  cout << "#";
-	} else {
-	  cout << ".";
+	  draw_scaled_point(renderer, scale, current_x, current_y);
 	}
 	adjacent_on[current_x][current_y] = count_adjacent(current_x, current_y, pixels_on, width, height);
       }
-      cout << "\n";
     }
-    
-    cout << "\n";
     
     for (current_y = 0; current_y < height; current_y++) {
       for (current_x = 0; current_x < width; current_x++) {
@@ -84,5 +114,12 @@ int main ()
 	}
       }
     }
+    SDL_RenderPresent(renderer);
+    SDL_Delay(delay_seconds * 1000);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+    SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255); 
   }
+  SDL_DestroyWindow(screen);
+  SDL_Quit();
 }
